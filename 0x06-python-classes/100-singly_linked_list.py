@@ -65,6 +65,6 @@ class SinglyLinkedList:
         result = []
         temp = self.__head
         while temp is not None:
-            result.append(str[temp.data])
+            result.append(str(temp.data))
             temp = temp.next_node
         return ('\n'.join(result))
