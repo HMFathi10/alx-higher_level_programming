@@ -48,6 +48,7 @@ class SinglyLinkedList:
         """Insert New node at right position"""
         n = Node(value)
         if self.__head is None:
+            n.next_node = None
             self__head = n
         elif self.__head.data > value:
             n.next_node = self.__head
@@ -66,4 +67,4 @@ class SinglyLinkedList:
         while temp is not None:
             result.append(str[temp.data])
             temp = temp.next_node
-        return ("\n".join(result))
+        return ('\n'.join(result))
