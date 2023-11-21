@@ -27,8 +27,7 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value  #: size of the square
+        self.__size = value  #: size of the square
 
     @property
     def position(self):
