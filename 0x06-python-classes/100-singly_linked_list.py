@@ -14,7 +14,7 @@ class Node:
         self.__data = data
         self.__next_node = next_node
 
-    @proparty
+    @property
     def data(self):
         """Get/Set data"""
         return self.__data
@@ -25,7 +25,7 @@ class Node:
             raise TypeError("data must be an integer")
         self.__data = value
 
-    @proparty
+    @property
     def next_node(self):
         """Get/Set next_node"""
         return (self.__next_node)
