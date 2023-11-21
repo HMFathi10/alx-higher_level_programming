@@ -48,9 +48,9 @@ class SinglyLinkedList:
         """Insert New node at right position"""
         n = Node(value)
         if self.__head is None:
-            __head = n
+            self__head = n
         elif self.__head.data > value:
-            n.next_node = self. __head
+            n.next_node = self.__head
             self.__head = n
         else:
             temp = self.__head
