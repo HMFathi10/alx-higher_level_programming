@@ -1,23 +1,24 @@
 #!/usr/bin/python3
-"""class Node that defines a node of a singly linked list"""
+"""Define classes for a singly-linked list."""
 
 
 class Node:
-    """Represent a square"""
+    """Represent a node in a singly-linked list."""
 
     def __init__(self, data, next_node=None):
-        """Initalize Node
+        """Initialize a new Node.
+
         Args:
-            data (int): node data
-            next_node (Node): next node pointer
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """Get/Set data"""
-        return self.__data
+        """Get/set the data of the Node."""
+        return (self.__data)
 
     @data.setter
     def data(self, value):
@@ -27,7 +28,7 @@ class Node:
 
     @property
     def next_node(self):
-        """Get/Set next_node"""
+        """Get/set the next_node of the Node."""
         return (self.__next_node)
 
     @next_node.setter
@@ -38,33 +39,41 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Initalize SinglyLinkedList"""
+    """Represent a singly-linked list."""
 
     def __init__(self):
-        """Initalize SinglyLinkedList"""
+        """Initalize a new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Insert New node at right position"""
-        n = Node(value)
+        """Insert a new Node to the SinglyLinkedList.
+
+        The node is inserted into the list at the correct
+        ordered numerical position.
+
+        Args:
+            value (Node): The new Node to insert.
+        """
+        new = Node(value)
         if self.__head is None:
-            n.next_node = None
-            self__head = n
+            new.next_node = None
+            self.__head = new
         elif self.__head.data > value:
-            n.next_node = self.__head
-            self.__head = n
+            new.next_node = self.__head
+            self.__head = new
         else:
-            temp = self.__head
-            while (temp.next_node is not None and temp.next_node.data < value):
-                temp = temp.next_node
-            n.next_node = temp.next_node
-            temp.next_node = n
+            tmp = self.__head
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
     def __str__(self):
-        """Define the print pattern"""
-        result = []
-        temp = self.__head
-        while temp is not None:
-            result.append(str(temp.data))
-            temp = temp.next_node
-        return ('\n'.join(result))
+        """Define the print() representation of a SinglyLinkedList."""
+        values = []
+        tmp = self.__head
+        while tmp is not None:
+            values.append(str(tmp.data))
+            tmp = tmp.next_node
+        return ('\n'.join(values))
