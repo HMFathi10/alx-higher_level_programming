@@ -42,4 +42,4 @@ def matrix_divided(matrix, div):
                 raise TypeError(error_msg)
         row_len = len(row)
     div_matrix = list(map(lambda row: list(map(lambda element: round(element / div, 2), row)), matrix))
-
+    return (div_matrix)
