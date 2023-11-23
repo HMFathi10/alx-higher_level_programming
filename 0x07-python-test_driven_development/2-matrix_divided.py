@@ -30,7 +30,7 @@ def matrix_divided(matrix, div):
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
     if not div:
-        raise TypeError("division by zero")
+        raise ZeroDivisionError("division by zero")
     for row in matrix:
         if not row or not isinstance(row, list):
             raise TypeError(error_msg)
