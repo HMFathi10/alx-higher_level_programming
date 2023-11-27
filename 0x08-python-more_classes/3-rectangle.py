@@ -51,7 +51,4 @@ class Rectangle:
         """ print the rectangle """
         if self.__width is 0 or self.__height is 0:
             return ""
-        for i in range(height):
-            for j in range(width):
-                print("#", end="")
-            print("")
+        return ("\n".join(["".join(["#" for i in range(self.__width)]) for j in range(self.__height)]))
