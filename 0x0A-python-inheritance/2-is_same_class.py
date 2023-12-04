@@ -5,5 +5,5 @@
 
 
 def is_same_class(obj, a_class):
-     """returns True if the object is exactly an instance"""
+    """returns True if the object is exactly an instance"""
     return isinstance(obj, a_class)
