@@ -19,6 +19,7 @@ class Square(Rectangle):
     def area(self):
         """ return area """
         return self.__size ** 2
+
     def __str__(self):
         """
         str funtion to print with/height
