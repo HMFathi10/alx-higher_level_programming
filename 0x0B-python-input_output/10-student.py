@@ -23,8 +23,9 @@ class Student:
 
             dic_object = {}
 
-            for key in obj:
-                dic_object[key] = obj[key]
+            for key, value in obj.items():
+                if key in attrs:
+                    dic_object[key] = obj[key]
             return dic_object
 
         return obj
