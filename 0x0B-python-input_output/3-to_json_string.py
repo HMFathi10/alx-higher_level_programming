@@ -3,6 +3,7 @@
 import json
 from io import StringIO
 
+
 def to_json_string(my_obj):
     """ Convert object to string
 
