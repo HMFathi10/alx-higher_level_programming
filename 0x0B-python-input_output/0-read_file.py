@@ -7,7 +7,7 @@ def read_file(filename=""):
 
     Args:
         filename: file name
-        
+
         Raises
             Exception: when the file can not be opend
     """
