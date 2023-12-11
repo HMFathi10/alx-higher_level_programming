@@ -47,7 +47,7 @@ class Base:
             if list_objs is None:
                 jsonfile.write("[]")
             else:
-                dicts = [item.to_dictionay() for item in list_object]
+                dicts = [item.to_dictionary() for item in list_objs]
                 jsonfile.write(Base.to_json_string(dicts))
 
     @staticmethod
@@ -60,7 +60,7 @@ class Base:
             If json_string is None or empty - an empty list.
             Otherwise - the Python list represented by json_string.
         """
-        if json_string in None or json_string == "[]":
+        if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
 
@@ -79,7 +79,7 @@ class Base:
             new.update(**dictionary)
             return new
 
-    @clasmethod
+    @classmethod
     def load_from_file(cls):
         """Return a list of classes instantiated from a file of JSON strings.
 
