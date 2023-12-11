@@ -21,11 +21,11 @@ class Rectangle(Base):
             TypeError: If either of x or y is not an int.
             ValueError: If either of x or y < 0.
         """
-        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -108,50 +108,51 @@ class Rectangle(Base):
             **kwargs (dict): New key/value pairs of attributes.
         """
         if args and len(args) != 0:
-            for i in range(len(args)):
-                match i:
-                    case 0:
-                        if args[i] is None:
-                            self.__init__(self.width, self.height,
-                                          self.x, self.y)
-                        else:
-                            self.id = args[i]
-                    case 1:
-                        self.width = args[i]
-                    case 2:
-                        self.height = args[i]
-                    case 3:
-                        self.x = args[i]
-                    case 4:
-                        self.y = args[i]
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
+                    self.width = arg
+                elif a == 2:
+                    self.height = arg
+                elif a == 3:
+                    self.x = arg
+                elif a == 4:
+                    self.y = arg
+                a += 1
 
         elif kwargs and len(kwargs) != 0:
-            for key, value in kwargs.items():
-
-                if key == "id" and value is None:
-                    self.__init__(self.width, self.height, self.x, self.y)
-                elif key == "id":
-                    self.id = value
-                elif key == "width":
-                    self.width = value
-                elif key == "height":
-                    self.height = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "width":
+                    self.width = v
+                elif k == "height":
+                    self.height = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
 
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
         return {
-                "id": self.id,
-                "width": self.width,
-                "height": self.height,
-                "x": self.x,
-                "y": self.y
-                }
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
 
     def __str__(self):
+        """Return the print() and str() representation of the Rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
